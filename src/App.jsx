@@ -1,34 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { Panel, Button, EnteringPlayers } from './components'
+import { useModalContext } from './components/EnteringPlayers/context/UseModalContext'
+
+const cards = [[1, 1, 2, 2, 3], [3, 4, 4, 5, 5], [6, 6, 7, 7, 8], [8, 9, 9, 10, 10], [11, 11, 12, 12, 13], [13, 14, 14, 15, 15]]
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { setState } = useModalContext();
+
+  const play = () => {
+    setState(true);
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <h1>Memory Game</h1>
+      <Panel cards={cards} />
+      <Button text="JUGAR" onClick={play} />
+      <EnteringPlayers>
+        <h1>Se Abrio</h1>
+      </EnteringPlayers>
+    </div>
   )
 }
 
