@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { Panel, Button, EnteringPlayers, SelectPlayer } from './components'
+import { Panel, Button, EnteringPlayers } from './components'
 
 const cards = [[1, 1, 2, 2, 3], [3, 4, 4, 5, 5], [6, 6, 7, 7, 8], [8, 9, 9, 10, 10], [11, 11, 12, 12, 13], [13, 14, 14, 15, 15]]
 
@@ -20,6 +20,7 @@ function App() {
 
     const panel = document.getElementById("panel");
     const jugar = document.getElementById("jugar");
+    const dialog = document.querySelector("dialog");
 
     const player1Name = document.getElementById("player1").value;
     const player2Name = document.getElementById("player2").value;
@@ -32,18 +33,20 @@ function App() {
     setPlayer4(player4Name);
     
     panel.classList.remove("hidden");
+    panel.classList.add("panel");
     jugar.classList.add("hidden");
+    dialog.classList.add("hidden");
   }
 
   return (
     <>
-      <main className='flex flex-col items-center justify-center w-screen h-screen'>
-        <h1 className='mb-10'>Memory Game</h1>
+      <main>
+        <h1 className='title'>Memory Game</h1>
         <Panel cards={cards} player1={player1} player2={player2} player3={player3} player4={player4} />
         <Button text="jugar" onClick={selectPlayers} id="jugar" />
       </main>
 
-      <dialog className='w-1/2'>
+      <dialog>
         <EnteringPlayers onSubmit={play} />
       </dialog>
     </>
