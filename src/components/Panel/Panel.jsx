@@ -1,21 +1,60 @@
-import { Column, Player } from "./components";
+import { Player, Card } from "./components";
 import './Panel.css'
 
-const Panel = ({ cards, player1, player2, player3, player4 }) => {
+const Panel = ({ player1, player2, player3, player4 }) => {
     return (
-        <div id="panel" className="hidden">
-            <div className="players">
-                <Player name={player1} bg="bg-blue" />
-                <Player name={player2} bg="bg-red" />
-                <Player name={player3} bg="bg-green" />
-                <Player name={player4} bg="bg-orange" />
-            </div>
-            <div className="cards-rows">
-                {cards.map((card, index) => (
-                    <Column key={index} cards={card} />
-                ))}
-            </div>
-        </div>
+        <section className="panel hidden" id="panel">
+        <ul className="players">
+            <Player name={player1} bg="bg-blue" />
+            <Player name={player2} bg="bg-red" />
+            <Player name={player3} bg="bg-green" />
+            <Player name={player4} bg="bg-orange" />
+        </ul>
+        <table>
+            <tbody>
+                <tr>
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                </tr>
+                <tr>
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                </tr>
+                <tr>
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                </tr>
+                <tr>
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                </tr>
+                <tr>
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                </tr>
+            </tbody>
+        </table>
+        </section>
     )
 }
 

@@ -1,9 +1,8 @@
 const Player = ({ name, bg }) => {
     return (
-        <div className="player">
-            <span className={`${bg}`}></span>
-            <p>{name}</p>
-        </div>
+        <li className={`player ${bg}`}>
+            {name}
+        </li>
     )
 }
 

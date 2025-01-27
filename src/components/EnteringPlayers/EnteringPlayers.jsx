@@ -5,7 +5,7 @@ const EnteringPlayers = ({ onSubmit }) => {
   return (
     <>
       <h2>Enter The Players</h2>
-      <form className="enter-players" method="POST" onSubmit={onSubmit}>
+      <form method="POST" onSubmit={onSubmit}>
         <fieldset>
           <SelectPlayer player={1} bg="bg-red" nameInput="player1" />
           <SelectPlayer player={2} bg="bg-blue" nameInput="player2" />

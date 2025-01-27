@@ -14,7 +14,7 @@
 
 .players {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
 }
 
@@ -23,31 +23,13 @@
     align-items: center;
     justify-content: center;
     margin: 1rem 0;
-}
-
-.cards-rows {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 1fr;
-    margin-bottom: 1rem;
-    width: 100%;
-}
-
-.cards-columns {
-    display: grid;
-    grid-template-rows: repeat(5, 1fr);
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
 }
 
 .card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     height: 8rem;
     width: 6rem;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
     background-color: blue;
 }

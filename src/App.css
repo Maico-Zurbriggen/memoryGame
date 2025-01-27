@@ -21,14 +21,34 @@ main {
 
 dialog {
   display: hidden;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   padding: 3rem;
   border-radius: 1rem;
 }
 
+table {
+  width: 100%;
+  border-spacing: 1rem;
+}
+
+form {
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: beige;
+}
+
+h1, h2, h3 {
+  margin: 1rem 0;
+}
 h1 {
   font-size: 4rem;
 }
@@ -57,25 +77,6 @@ span {
   width: 3rem;
   height: 3rem;
   border-radius: 100%;
-}
-
-button {
-  width: 16rem;
-  background-color: #3b82f6;
-  color: #ffffff;
-  padding: 2rem;
-  margin-top: 2rem;
-  font-size: 2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-radius: 1rem;
-}
-button:hover {
-  background-color: #1d4ed8;
-}
-
-.title {
-  margin-bottom: 2rem;
 }
 
 .bg-blue {
