@@ -1,7 +1,8 @@
 import { Player, Card } from "./components";
 import './Panel.css'
 
-const Panel = ({ player1, player2, player3, player4 }) => {
+const Panel = ({ cards, asignedCards, player1, player2, player3, player4 }) => {
+    console.log(asignedCards);
     return (
         <section className="panel hidden" id="panel">
         <ul className="players">
@@ -13,44 +14,19 @@ const Panel = ({ player1, player2, player3, player4 }) => {
         <table>
             <tbody>
                 <tr>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {asignedCards.filter((c, i) => i < 6).map((c, i) => <Card key={i} id={i} card={cards[c]} />)}
                 </tr>
                 <tr>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {asignedCards.filter((c, i) => i >= 6 && i < 12).map((c, i) => <Card key={i} id={i + 6} card={cards[c]} />)}
                 </tr>
                 <tr>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {asignedCards.filter((c, i) => i >= 12 && i < 18).map((c, i) => <Card key={i} id={i + 12} card={cards[c]} />)}
                 </tr>
                 <tr>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {asignedCards.filter((c, i) => i >= 18 && i < 24).map((c, i) => <Card key={i} id={i + 18} card={cards[c]} />)}
                 </tr>
                 <tr>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {asignedCards.filter((c, i) => i >= 24 && i < 30).map((c, i) => <Card key={i} id={i + 24} card={cards[c]} />)}
                 </tr>
             </tbody>
         </table>
