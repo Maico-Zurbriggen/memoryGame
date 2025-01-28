@@ -1,14 +1,13 @@
 import { Player, Card } from "./components";
 import "./Panel.css";
 
-const Panel = ({ cards, asignedCards, player1, player2, player3, player4, onClick }) => {
+const Panel = ({ cards, asignedCards, players, onClick }) => {
   return (
     <section className="panel hidden" id="panel">
       <ul className="players">
-        <Player name={player1} bg="bg-blue" />
-        <Player name={player2} bg="bg-red" />
-        <Player name={player3} bg="bg-green" />
-        <Player name={player4} bg="bg-orange" />
+        {players.map((player, i) => (
+          <Player key={i} name={player.name} bg={player.bg} color={player.color} id={player.name} points={player.points} />
+        ))}
       </ul>
       <table>
         <tbody>

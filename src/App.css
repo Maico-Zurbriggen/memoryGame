@@ -38,16 +38,18 @@ form {
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 li {
   font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
   color: beige;
+  margin: 0;
 }
 
 h1, h2, h3 {
-  margin: 1rem 0;
+  margin: 0;
 }
 h1 {
   font-size: 4rem;
@@ -80,14 +82,29 @@ span {
 }
 
 .bg-blue {
-  background-color: #3b82f6;
+  background-color: #3b82f6 !important;
 }
+.color-blue {
+  color: #3b82f6 !important;
+}
+
 .bg-red {
-  background-color: #ef4444;
+  background-color: #ef4444 !important;
 }
+.color-red {
+  color: #ef4444 !important;
+}
+
 .bg-green {
-  background-color: #10b981;
+  background-color: #10b981 !important;
 }
+.color-green {
+  color: #10b981 !important;
+}
+
 .bg-orange {
-  background-color: #f59e0b;
+  background-color: #f59e0b !important;
+}
+.color-orange {
+  color: #f59e0b !important;
 }
