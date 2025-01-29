@@ -5,9 +5,11 @@ const Player = ({ name, bg, color, id, points }) => {
         <li>
           <i className={`player-icon ${color} invisibility`}>&#x25BC;</i>
         </li>
-        <li className={`player-name ${bg}`}>{name}</li>
+        <li className={`player-name ${bg}`}>
+          <p>{name}</p>
+          <p className="player-points">{points}</p>
+        </li>
       </div>
-      <li className="player-points">{points}</li>
     </>
   );
 };
