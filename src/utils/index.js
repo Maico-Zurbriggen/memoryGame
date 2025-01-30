@@ -3,3 +3,7 @@ export { default as play } from './play';
 export { default as assignCards } from './assignCards';
 export { default as drawLetter } from './drawLetter';
 export { default as verifyWin } from './verifyWin';
+export { default as restartPanel } from './restartPanel';
+export { default as restartAll } from './restartAll';
+export { default as shiftChange } from './shiftChange';
+export { default as resetPoints } from './resetPoints';

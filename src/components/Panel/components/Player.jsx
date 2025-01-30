@@ -3,7 +3,7 @@ const Player = ({ name, bg, color, id, points }) => {
     <>
       <div className="player-container" id={id}>
         <li>
-          <i className={`player-icon ${color} invisibility`}>&#x25BC;</i>
+          <i className={`player-icon ${color} ${bg.includes('blue') ? '' : 'invisibility'}`}>&#x25BC;</i>
         </li>
         <li className={`player-name ${bg}`}>
           <p>{name}</p>

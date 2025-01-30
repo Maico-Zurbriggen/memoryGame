@@ -1,6 +1,8 @@
 import assignCards from "./assignCards";
 
-const play = (players) => {
+const play = (e, players, modifyPlayers, modifyActivePlayer, modifyCards) => {
+    e.preventDefault();
+
     const playersNames = [];
 
     const panel = document.getElementById("panel");
@@ -20,17 +22,18 @@ const play = (players) => {
     const updatedPlayers = players.map((player, i) => {
       return { ...player, name: playersNames[i] };
     })
+    const updatedActivePlayer = playersNames[0];
+    const updatedCards = assignCards();
 
     panel.classList.remove("hidden");
     panel.classList.add("panel");
-
-    let arrayCards = assignCards();
-
     buttonPlay.classList.add("hidden");
 
-    enterPlayers.close();
+    modifyPlayers(updatedPlayers);
+    modifyActivePlayer(updatedActivePlayer);
+    modifyCards(updatedCards);
 
-    return { updatedPlayers, playersNames, arrayCards };
+    enterPlayers.close();
 };
 
 export default play;

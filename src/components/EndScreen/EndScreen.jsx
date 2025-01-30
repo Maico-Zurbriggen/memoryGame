@@ -1,27 +1,20 @@
-import { useState } from "react";
 import { Button } from "..";
 import { ResultsTable } from "./components";
 
-const EndScreen = ({ players, winnerName }) => {
-  const [winner, setWinner] = useState("");
-
-  if (winnerName !== winner) {
-    setWinner(winnerName);
-  }
-
+const EndScreen = ({ players, winner, restartPanel, restartAll }) => {
   return (
     <>
       <h2>End Of The Game</h2>
-      <h3>The Winner Is {winner}</h3>
+      <h3>{winner}</h3>
       <ResultsTable players={players} />
       <Button
         text="Play Again"
-        onClick={() => console.log("Play Again")}
+        onClick={restartPanel}
         id="restartPanelButton"
       />
       <Button
         text="Return to Menu"
-        onClick={() => console.log("Return to Menu")}
+        onClick={restartAll}
         id="restartAllButton"
       />
     </>

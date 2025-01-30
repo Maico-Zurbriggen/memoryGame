@@ -1,8 +1,8 @@
-const arrayCards = [];
 const max = 15;
 let card = 0;
 
 const assignCards = () => {
+  const arrayCards = [];
   for (let i = 0; i < 30; i++) {
     do {
       card = Math.floor(Math.random() * max);

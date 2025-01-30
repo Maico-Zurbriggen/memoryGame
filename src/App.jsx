@@ -1,55 +1,41 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import { Panel, Button, EnteringPlayers, EndScreen } from "./components";
-import { cards, constantPlayers, constantsDrawLetter } from "./constants";
-import { selectPlayers, play, drawLetter, verifyWin } from "./utils";
-
-const { showedCards, showedCardsIds } = constantsDrawLetter;
-let winnerName = "";
+import { cards, constantPlayers } from "./constants";
+import {
+  selectPlayers,
+  play,
+  drawLetter,
+  restartPanel,
+  restartAll,
+} from "./utils";
 
 function App() {
   const [asignedCards, setAsignedCards] = useState([]);
   const [activePlayer, setActivePlayer] = useState("");
   const [players, setPlayers] = useState(constantPlayers);
+  const [winner, setWinner] = useState("");
 
-  useEffect(() => {
-    const players = document.querySelectorAll(".player-container");
-    const playersIcon = document.querySelectorAll(".player-icon");
-    players.forEach((player, i) => {
-      if (player.id === activePlayer) {
-        playersIcon[i].classList.remove("invisibility");
-      } else {
-        playersIcon[i].classList.add("invisibility");
-      }
-    });
-  }, [activePlayer]);
+  const resetPlayers = () => {
+    setPlayers(constantPlayers);
+    setActivePlayer("");
+  };
 
-  const auxiliarPlay = (e) => {
-    e.preventDefault();
-
-    const { updatedPlayers, playersNames, arrayCards } = play(players);
-
+  const modifyPlayers = (updatedPlayers) => {
     setPlayers(updatedPlayers);
-    setActivePlayer(playersNames[0]);
-    setAsignedCards(arrayCards);
-  }
+  };
 
-  const auxiliarDrawLetter = (_, id, card) => {
-    const showCard = document.getElementById(id);
+  const modifyActivePlayer = (updatedActivePlayer) => {
+    setActivePlayer(updatedActivePlayer);
+  };
 
-    if (showedCards.length === 2 || showCard.classList.contains("visible"))
-      return;
+  const modifyCards = (updatedArrayCards) => {
+    setAsignedCards(updatedArrayCards);
+  };
 
-    const {changePlayers, changeActivePlayer} = drawLetter(players, activePlayer, showedCards, showedCardsIds, showCard, id, card);
-
-    setPlayers(changePlayers);
-    setActivePlayer(changeActivePlayer);
-
-    const winner = verifyWin(players);
-    if (winner) {
-      winnerName = winner.name;
-    }
-  }
+  const modifyWinner = (updatedWinner) => {
+    setWinner(updatedWinner);
+  };
 
   return (
     <>
@@ -59,21 +45,51 @@ function App() {
           cards={cards}
           asignedCards={asignedCards}
           players={players}
-          onClick={auxiliarDrawLetter}
+          onClick={(_, id, card) =>
+            drawLetter(
+              id,
+              card,
+              players,
+              activePlayer,
+              modifyPlayers,
+              modifyActivePlayer,
+              modifyWinner
+            )
+          }
         />
-        <Button 
-          text="play" 
-          onClick={selectPlayers} 
-          id="buttonPlay" 
-        />
+        <Button text="play" onClick={selectPlayers} id="buttonPlay" />
       </main>
 
       <dialog id="enterPlayers">
-        <EnteringPlayers onSubmit={auxiliarPlay} />
+        <EnteringPlayers
+          onSubmit={(e) =>
+            play(e, players, modifyPlayers, modifyActivePlayer, modifyCards)
+          }
+        />
       </dialog>
 
       <dialog id="endScreen">
-        <EndScreen players={players} winnerName={winnerName} />
+        <EndScreen
+          players={players}
+          winner={winner}
+          restartPanel={() =>
+            restartPanel(
+              players[0].name,
+              modifyCards,
+              modifyActivePlayer,
+              players,
+              modifyPlayers
+            )
+          }
+          restartAll={() =>
+            restartAll(
+              players[0].name,
+              modifyCards,
+              modifyActivePlayer,
+              resetPlayers
+            )
+          }
+        />
       </dialog>
     </>
   );
