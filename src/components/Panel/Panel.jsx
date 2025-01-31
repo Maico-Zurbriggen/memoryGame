@@ -5,9 +5,20 @@ const Panel = ({ cards, asignedCards, players, onClick }) => {
   return (
     <section className="panel hidden" id="panel">
       <ul className="players">
-        {players.map((player, i) => (
-          <Player key={i} name={player.name} bg={player.bg} color={player.color} id={player.name} points={player.points} />
-        ))}
+        {players.map((player, i) => {
+          if (player.name !== "") {
+            return (
+              <Player
+                key={i}
+                name={player.name}
+                bg={player.bg}
+                color={player.color}
+                id={player.name}
+                points={player.points}
+              />
+            );
+          }
+        })}
       </ul>
       <div className="cards">
         {asignedCards.map((c, i) => (

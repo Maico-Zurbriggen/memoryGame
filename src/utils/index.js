@@ -1,4 +1,4 @@
-export { default as selectPlayers } from './selectPlayers';
+export { default as openEnterPlayers } from './openEnterPlayers';
 export { default as play } from './play';
 export { default as assignCards } from './assignCards';
 export { default as drawLetter } from './drawLetter';
@@ -7,3 +7,4 @@ export { default as restartPanel } from './restartPanel';
 export { default as restartAll } from './restartAll';
 export { default as shiftChange } from './shiftChange';
 export { default as resetPoints } from './resetPoints';
+export { default as assignPlayers } from './assignPlayers';

@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 import { Panel, Button, EnteringPlayers, EndScreen } from "./components";
 import { cards, constantPlayers } from "./constants";
 import {
-  selectPlayers,
+  openEnterPlayers,
   play,
   drawLetter,
   restartPanel,
@@ -15,6 +15,7 @@ function App() {
   const [activePlayer, setActivePlayer] = useState("");
   const [players, setPlayers] = useState(constantPlayers);
   const [winner, setWinner] = useState("");
+  const [errors, setErrors] = useState([]);
 
   const resetPlayers = () => {
     setPlayers(constantPlayers);
@@ -37,6 +38,10 @@ function App() {
     setWinner(updatedWinner);
   };
 
+  const modifyErrors = (newErrors) => {
+    setErrors(newErrors);
+  };
+
   return (
     <>
       <main>
@@ -57,14 +62,15 @@ function App() {
             )
           }
         />
-        <Button text="play" onClick={selectPlayers} id="buttonPlay" />
+        <Button text="play" onClick={() => openEnterPlayers(modifyCards)} id="buttonPlay" />
       </main>
 
       <dialog id="enterPlayers">
         <EnteringPlayers
           onSubmit={(e) =>
-            play(e, players, modifyPlayers, modifyActivePlayer, modifyCards)
+            play(e, players, modifyPlayers, modifyActivePlayer, modifyErrors)
           }
+          errors={errors}
         />
       </dialog>
 

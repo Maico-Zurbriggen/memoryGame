@@ -1,32 +1,38 @@
-import {assignCards, shiftChange, resetPoints} from "../utils";
+import { assignCards, shiftChange, resetPoints } from "../utils";
 
-const restartPanel = (updatedActivePlayer, modifyCards, modifyActivePlayer, players,  modifyPlayers) => {
-    const allVisibleCards = document.querySelectorAll(".visible");
-    const endScreen = document.getElementById("endScreen");
+const restartPanel = (
+  updatedActivePlayer,
+  modifyCards,
+  modifyActivePlayer,
+  players,
+  modifyPlayers
+) => {
+  const allVisibleCards = document.querySelectorAll(".visible");
+  const endScreen = document.getElementById("endScreen");
 
-    allVisibleCards.forEach((card) => {
-        card.classList.remove("visible");
-        card.classList.add("transparent");
-        
-        card.parentElement.classList.forEach((c) => {
-            if (c.includes("bg")) {
-                card.parentElement.classList.remove(c);
-            }
-        });
+  allVisibleCards.forEach((card) => {
+    card.classList.remove("visible");
+    card.classList.add("transparent");
+
+    card.parentElement.classList.forEach((c) => {
+      if (c.includes("bg")) {
+        card.parentElement.classList.remove(c);
+      }
     });
+  });
 
-    const updatedCards = assignCards();
+  const updatedCards = assignCards();
 
-    shiftChange(updatedActivePlayer);
+  shiftChange(updatedActivePlayer);
 
-    if (players) {
-        resetPoints(players, modifyPlayers);
-        modifyActivePlayer(updatedActivePlayer);
-    }
+  if (players) {
+    resetPoints(players, modifyPlayers);
+    modifyActivePlayer(updatedActivePlayer);
+  }
 
-    modifyCards(updatedCards);
+  modifyCards(updatedCards);
 
-    endScreen.close();
-}
+  endScreen.close();
+};
 
 export default restartPanel;

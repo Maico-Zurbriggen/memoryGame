@@ -1,13 +1,15 @@
-const max = 15;
-let card = 0;
+const numberOfCouples = 15;
+const numberOfCards = 30;
+const numberOfSameCards = 2;
+let positionCard = 0;
 
 const assignCards = () => {
   const arrayCards = [];
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < numberOfCards; i++) {
     do {
-      card = Math.floor(Math.random() * max);
-    } while (arrayCards.reduce((acc, c) => acc + (c === card), 0) === 2);
-    arrayCards.push(card);
+      positionCard = Math.floor(Math.random() * numberOfCouples);
+    } while (arrayCards.reduce((acc, c) => acc + (c === positionCard), 0) === numberOfSameCards);
+    arrayCards.push(positionCard);
   }
   
   return arrayCards;

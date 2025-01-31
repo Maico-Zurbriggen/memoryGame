@@ -1,7 +1,7 @@
-import { SelectPlayer } from "./components"
+import { SelectPlayer } from "./components";
+import { ErrorMessage } from '..';
 
-const EnteringPlayers = ({ onSubmit }) => {
-
+const EnteringPlayers = ({ onSubmit, errors }) => {
   return (
     <>
       <h2>Enter The Players</h2>
@@ -12,10 +12,15 @@ const EnteringPlayers = ({ onSubmit }) => {
           <SelectPlayer player={3} bg="bg-green" nameInput="player3" />
           <SelectPlayer player={4} bg="bg-orange" nameInput="player4" />
         </fieldset>
+        <div className="errors-container">
+          {errors.map((error, index) => (
+            <ErrorMessage key={index} text={error} />
+          ))}
+        </div>
         <button>Start</button>
       </form>
     </>
-  )
-}
+  );
+};
 
 export default EnteringPlayers;

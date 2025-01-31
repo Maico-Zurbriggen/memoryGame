@@ -1,39 +1,28 @@
-import assignCards from "./assignCards";
+import assignPlayers from "./assignPlayers";
 
-const play = (e, players, modifyPlayers, modifyActivePlayer, modifyCards) => {
-    e.preventDefault();
+const play = (e, players, modifyPlayers, modifyActivePlayer, modifyErrors) => {
+  e.preventDefault();
 
-    const playersNames = [];
+  const indexFirstPlayer = 0;
 
-    const panel = document.getElementById("panel");
-    const buttonPlay = document.getElementById("buttonPlay");
-    const enterPlayers = document.getElementById("enterPlayers");
+  const panel = document.getElementById("panel");
+  const buttonPlay = document.getElementById("buttonPlay");
+  const enterPlayers = document.getElementById("enterPlayers");
 
-    playersNames.push(document.getElementById("player1").value);
-    playersNames.push(document.getElementById("player2").value);
-    playersNames.push(document.getElementById("player3").value);
-    playersNames.push(document.getElementById("player4").value);
+  const {updatedErrors, updatedPlayers} = assignPlayers(players, modifyErrors)
 
-    document.getElementById("player1").value = "";
-    document.getElementById("player2").value = "";
-    document.getElementById("player3").value = "";
-    document.getElementById("player4").value = "";
+  if (updatedErrors.length) return;
 
-    const updatedPlayers = players.map((player, i) => {
-      return { ...player, name: playersNames[i] };
-    })
-    const updatedActivePlayer = playersNames[0];
-    const updatedCards = assignCards();
+  const updatedActivePlayer = updatedPlayers[indexFirstPlayer].name;
 
-    panel.classList.remove("hidden");
-    panel.classList.add("panel");
-    buttonPlay.classList.add("hidden");
+  panel.classList.remove("hidden");
+  panel.classList.add("panel");
+  buttonPlay.classList.add("hidden");
 
-    modifyPlayers(updatedPlayers);
-    modifyActivePlayer(updatedActivePlayer);
-    modifyCards(updatedCards);
+  modifyPlayers(updatedPlayers);
+  modifyActivePlayer(updatedActivePlayer);
 
-    enterPlayers.close();
+  enterPlayers.close();
 };
 
 export default play;
