@@ -4,9 +4,9 @@ const ResultsTable = ({ players }) => {
       <tbody>
         {players.map((player, j) => (
           <tr key={j}>
-            <th>{player.name}:</th>
+            <th className="resalt-text names">{player.name}:</th>
             {Array.from({ length: player.points }).map((_, i) => (
-              <td key={i} className={`${player.bg}`}></td>
+              <td key={i} className={`points-indicator ${player.bg}`}></td>
             ))}
           </tr>
         ))}

@@ -1,7 +1,7 @@
-const Card = ({ id, card, onClick }) => {
+const Card = ({ id, card, drawLetter }) => {
   return (
-    <div className="card" onClick={(e) => onClick(e, id, card)}>
-      <p className="transparent" id={id}>
+    <div className="card flex-center" onClick={(e) => drawLetter(e, id, card)}>
+      <p id={id}>
         {card}
       </p>
     </div>

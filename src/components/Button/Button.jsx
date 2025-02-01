@@ -2,7 +2,7 @@ import "./Button.css";
 
 const Button = ({ id, text, onClick }) => {
   return (
-    <button id={id} onClick={onClick}>
+    <button className="resalt-text" id={id} onClick={onClick}>
       {text}
     </button>
   );

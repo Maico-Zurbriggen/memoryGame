@@ -1,10 +1,10 @@
 import { Player, Card } from "./components";
 import "./Panel.css";
 
-const Panel = ({ cards, asignedCards, players, onClick }) => {
+const Panel = ({ cards, asignedCards, players, drawLetter }) => {
   return (
-    <section className="panel hidden" id="panel">
-      <ul className="players">
+    <section className="panel flex-center w-100 hidden" id="panel">
+      <ul className="players flex-center w-100">
         {players.map((player, i) => {
           if (player.name !== "") {
             return (
@@ -20,9 +20,9 @@ const Panel = ({ cards, asignedCards, players, onClick }) => {
           }
         })}
       </ul>
-      <div className="cards">
+      <div className="cards w-100">
         {asignedCards.map((c, i) => (
-          <Card key={i} id={i} card={cards[c]} onClick={onClick} />
+          <Card key={i} id={i} card={cards[c]} drawLetter={drawLetter} />
         ))}
       </div>
     </section>

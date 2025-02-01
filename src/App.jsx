@@ -44,13 +44,13 @@ function App() {
 
   return (
     <>
-      <main>
+      <main className="flex-center">
         <h1>Memory Game</h1>
         <Panel
           cards={cards}
           asignedCards={asignedCards}
           players={players}
-          onClick={(_, id, card) =>
+          drawLetter={(_, id, card) =>
             drawLetter(
               id,
               card,

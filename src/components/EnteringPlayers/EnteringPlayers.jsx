@@ -1,11 +1,12 @@
 import { SelectPlayer } from "./components";
 import { ErrorMessage } from '..';
+import './EnteringPlayers.css'
 
 const EnteringPlayers = ({ onSubmit, errors }) => {
   return (
     <>
       <h2>Enter The Players</h2>
-      <form method="POST" onSubmit={onSubmit}>
+      <form method="POST" className="w-100" onSubmit={onSubmit}>
         <fieldset>
           <SelectPlayer player={1} bg="bg-blue" nameInput="player1" />
           <SelectPlayer player={2} bg="bg-red" nameInput="player2" />
@@ -17,7 +18,7 @@ const EnteringPlayers = ({ onSubmit, errors }) => {
             <ErrorMessage key={index} text={error} />
           ))}
         </div>
-        <button>Start</button>
+        <button className="resalt-text">Start</button>
       </form>
     </>
   );

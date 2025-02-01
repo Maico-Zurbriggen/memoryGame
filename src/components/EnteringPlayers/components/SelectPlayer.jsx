@@ -1,7 +1,7 @@
 const SelectPlayer = ({ player, bg, nameInput }) => {
   return (
-    <label>
-      <span className={`${bg}`}></span>
+    <label className="flex-center">
+      <span className={`color-indicator ${bg}`}></span>
       <input type="text" placeholder={`Player ${player}`} id={nameInput} />
     </label>
   );
