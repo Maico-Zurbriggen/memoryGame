@@ -1,5 +1,6 @@
 import { Button } from "..";
 import { ResultsTable } from "./components";
+import "./EndScreen.css";
 
 const EndScreen = ({ players, winner, restartPanel, restartAll }) => {
   return (

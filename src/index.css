@@ -1,3 +1,20 @@
+:root {
+    --font: "Roboto Condensed", serif;
+    --gray-background: #2f4f4f;
+    --gray-background-light: #778899;
+    --gray-alternative: #293133;
+    --plate-gray: #c0c0c0;
+    --copper: #b87333;
+    --light-copper: #d4936b;
+    --white: #ffffff;
+    --turquoise: #40e0d0;
+    --light-pink: #ffcccc;
+    --mint-green: #82cc82;
+    --mustard-yellow: #d4a640;
+    --marine-blue: #000080;
+    --crimson-red: #dc143c;
+}
+
 #root {
     display: flex;
     justify-content: center;

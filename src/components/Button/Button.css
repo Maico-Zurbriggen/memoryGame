@@ -1,13 +1,15 @@
 button {
+    font-family: var(--font);
+    font-size: 2.8rem;
+    color: var(--white);
+    background-color: var(--copper);
     width: 16rem;
-    background-color: #3b82f6;
-    color: beige;
     padding: 2rem;
     margin: 2rem;
-    font-size: 2rem;
     border-radius: 1rem;
+    border: none;
 }
 button:hover {
-    background-color: #1d4ed8;
+    background-color: var(--light-copper);
     cursor: pointer;
 }

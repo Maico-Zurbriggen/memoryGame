@@ -11,12 +11,15 @@
     width: 20%;
 }
 .player-name {
-    color: beige;
+    color: var(--white);
     justify-content: space-between;
     border-radius: 1rem;
     padding: .5rem;
 }
 .player-points {
+    font-size: 2.8rem;
+}
+.player-icon {
     font-size: 2.8rem;
 }
 
@@ -28,7 +31,7 @@
 }
 .card {
     height: 7.5rem;
-    background-color: gray;
+    background-color: var(--gray-background-light);
 }
 .card:hover {
     cursor: pointer;
