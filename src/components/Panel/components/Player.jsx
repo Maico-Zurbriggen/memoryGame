@@ -11,8 +11,8 @@ const Player = ({ name, bg, color, id, points }) => {
             &#x25BC;
           </p>
         </li>
-        <li className={`player-name flex-center w-100 resalt-text ${bg}`}>
-          <p>{name}</p>
+        <li className={`player-name-container flex-center w-100 resalt-text ${bg}`}>
+          <p className="player-name">{name}</p>
           <p className="player-points">{points}</p>
         </li>
       </div>
