@@ -1,7 +1,8 @@
 import { Player, Card } from "./components";
+import { Button } from "..";
 import "./Panel.css";
 
-const Panel = ({ cards, asignedCards, players, drawLetter }) => {
+const Panel = ({ cards, asignedCards, players, drawLetter, restartAll }) => {
   return (
     <section className="panel flex-center w-100 hidden" id="panel">
       <ul className="players flex-center w-100">
@@ -25,6 +26,7 @@ const Panel = ({ cards, asignedCards, players, drawLetter }) => {
           <Card key={i} id={i} card={cards[c]} drawLetter={drawLetter} />
         ))}
       </div>
+      <Button onClick={restartAll} text="Restart" id="restartButton" />
     </section>
   );
 };

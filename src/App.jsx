@@ -61,6 +61,12 @@ function App() {
               modifyWinner
             )
           }
+          restartAll={() => restartAll(
+            players[0].name,
+            modifyCards,
+            modifyActivePlayer,
+            resetPlayers
+          )}
         />
         <Button text="play" onClick={() => openEnterPlayers(modifyCards)} id="buttonPlay" />
       </main>

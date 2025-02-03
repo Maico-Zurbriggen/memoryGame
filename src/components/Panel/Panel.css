@@ -38,7 +38,7 @@
     gap: 1rem;
 }
 .card {
-    height: 7.5rem;
+    height: 6rem;
     background-color: var(--gray-background-light);
 }
 .card:hover {
