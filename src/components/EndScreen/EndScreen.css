@@ -14,3 +14,8 @@
   height: 2.5rem;
   margin: 0 .1rem;
 }
+@media(max-width: 480px) {
+    .points-indicator {
+      width: 2rem;
+    }
+}

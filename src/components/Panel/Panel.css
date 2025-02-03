@@ -44,3 +44,11 @@
 .card .visible {
     opacity: 1;
 }
+@media(max-width: 768px) {
+    .card {
+        height: 5rem;
+    }
+    .card p {
+        font-size: 3rem;
+    }
+}

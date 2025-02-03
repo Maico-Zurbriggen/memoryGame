@@ -4,6 +4,7 @@ button {
     color: var(--white);
     background-color: var(--copper);
     width: 16rem;
+    height: 8rem;
     padding: 2rem;
     margin: 2rem;
     border-radius: 1rem;
@@ -12,4 +13,10 @@ button {
 button:hover {
     background-color: var(--light-copper);
     cursor: pointer;
+}
+@media(max-width: 480px) {
+    button {
+        font-size: 2rem;
+        padding: 1rem;
+    }
 }
