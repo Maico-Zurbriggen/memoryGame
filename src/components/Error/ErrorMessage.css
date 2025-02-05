@@ -1,6 +1,6 @@
 .errors {
   color: beige;
-  background-color: red;
+  background-color: var(--alerts-red);
   border-radius: 1rem;
   padding: 1rem;
   margin: .5rem 0;

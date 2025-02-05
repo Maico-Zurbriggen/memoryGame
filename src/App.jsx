@@ -11,12 +11,22 @@ import {
 } from "./utils";
 
 function App() {
+  /*
+  Definimos los estados que requiere nuestra aplicación
+  
+  asignedCards: Se trata de un arreglo en el que se ubican los emojis de las cartas en orden aleatorio.
+  activePlayer: Se trata de un string que contiene el nombre del jugador del turno actual.
+  players: Es un arreglo de objetos con la información de los jugadores.
+  winner: Se trata de un string con el nombre del ganador.
+  errors: Es un arreglo de strings que contiene los errores que pueden surgir debido a la validación del ingreso de jugadores.
+  */
   const [asignedCards, setAsignedCards] = useState([]);
   const [activePlayer, setActivePlayer] = useState("");
   const [players, setPlayers] = useState(constantPlayers);
   const [winner, setWinner] = useState("");
   const [errors, setErrors] = useState([]);
 
+  /*Creamos funciones para modificar nuestros estados dentro del componente App*/
   const resetPlayers = () => {
     setPlayers(constantPlayers);
     setActivePlayer("");

@@ -1,3 +1,7 @@
+/*
+Este componente es para los input de EnteringPlayers
+*/
+
 const SelectPlayer = ({ player, bg, nameInput }) => {
   return (
     <label className="flex-center">

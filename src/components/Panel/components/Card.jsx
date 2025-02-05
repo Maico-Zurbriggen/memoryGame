@@ -1,3 +1,7 @@
+/*
+Este es el componente encargado de las cartas
+*/
+
 const Card = ({ id, card, drawLetter }) => {
   return (
     <div className="card flex-center" onClick={(e) => drawLetter(e, id, card)}>

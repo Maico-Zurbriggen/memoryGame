@@ -1,3 +1,5 @@
+/*Este es el estado inicial de los jugadores*/
+
 const constantPlayers = [
   { name: "", bg: "bg-blue", color: "color-blue", points: 0 },
   { name: "", bg: "bg-red", color: "color-red", points: 0 },

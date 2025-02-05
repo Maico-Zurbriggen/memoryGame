@@ -22,6 +22,7 @@
 .player-icon {
     font-size: 2.8rem;
 }
+/*Adaptamos el tamaño de la letra en la sección de jugadores para pantallas de móvil*/
 @media(max-width: 480px) {
     .player-points {
         font-size: 2rem;
@@ -31,6 +32,7 @@
     }
 }
 
+/*Creamos la grilla para el tablero*/
 .cards {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -44,6 +46,7 @@
 .card:hover {
     cursor: pointer;
 }
+/*Creamos la transición que se ve al presionar sobre una carta*/
 .card p {
     font-size: 3.4rem;
     transition: opacity 0.3s ease-in-out;
@@ -52,6 +55,7 @@
 .card .visible {
     opacity: 1;
 }
+/*Adaptamos el tamaño de las cartas y el emoji para pantallas menores a la de una tablet*/
 @media(max-width: 768px) {
     .card {
         height: 5rem;

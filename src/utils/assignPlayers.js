@@ -1,3 +1,8 @@
+/*
+Esta función se encarga de extraer los nombres de los jugadores de los input de  EnteringPlayers y asignarlos
+al estado players, además aqui se realizan las validaciones
+*/
+
 const assignPlayers = (players, modifyErrors) => {
   const minimunCharacters = 8;
   const minimunPlayers = 2;

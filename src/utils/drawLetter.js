@@ -1,5 +1,11 @@
 import { verifyWin, shiftChange } from "../utils";
 
+/*
+Esta función se encarga de mostrar las cartas al presionarlas y evalúa cuando hay coincidencia y cuando no,
+además no permite que se toquen varias cartas juntas y no permite que se presionen cartas ya descubiertas.
+Por ultimo verifica si hay un ganador o no al encontrar una coincidencia
+*/
+
 const showedCards = [];
 const showedCardsIds = [];
 const showedCardsContainers = [];
@@ -45,11 +51,8 @@ const drawLetter = (
         secondCard.classList.remove("visible");
       }, 500);
 
-      const updatedActivePlayer = players[(indexActivePlayer + 1) % players.length].name;
+      shiftChange(modifyActivePlayer, indexActivePlayer, players);
 
-      shiftChange(updatedActivePlayer);
-
-      modifyActivePlayer(updatedActivePlayer);
     } else {
       firstCard.parentElement.classList.add(players[indexActivePlayer].bg);
       secondCard.parentElement.classList.add(players[indexActivePlayer].bg);
@@ -61,16 +64,8 @@ const drawLetter = (
         return player;
       });
 
-      const winner = verifyWin(updatedPlayers);
+      verifyWin(updatedPlayers, modifyWinner);
       modifyPlayers(updatedPlayers);
-
-      if (winner.length) {
-        if (winner.length > 1) {
-          modifyWinner("There Is A Tie");
-        } else {
-          modifyWinner(`The Winner Is ${winner[0].name}`);
-        }
-      }
     }
 
     setTimeout(() => {

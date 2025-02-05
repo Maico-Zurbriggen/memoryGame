@@ -1,3 +1,8 @@
+/*
+Este es el componente encargado de la muestra de los jugadores, con el indicador de turno,
+el nombre del jugador y su puntaje
+*/
+
 const Player = ({ name, bg, color, id, points }) => {
   return (
     <>

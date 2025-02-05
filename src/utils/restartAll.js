@@ -1,5 +1,10 @@
 import restartPanel from "./restartPanel";
 
+/*
+Esta función se encarga de dejar la aplicación como esta al abrirla para volver a cargar
+los nombres de los jugadores, utiliza restartPanel que es una función que realiza un reinicio parcial
+*/
+
 const restartAll = (
   updatedActivePlayer,
   modifyCards,

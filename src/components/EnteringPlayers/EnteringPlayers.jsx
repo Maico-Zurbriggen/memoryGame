@@ -2,6 +2,10 @@ import { SelectPlayer } from "./components";
 import { ErrorMessage } from '..';
 import './EnteringPlayers.css'
 
+/*
+Este componente es la ventana modal para ingresar los jugadores
+*/
+
 const EnteringPlayers = ({ onSubmit, errors }) => {
   return (
     <>

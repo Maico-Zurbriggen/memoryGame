@@ -1,5 +1,11 @@
 import { assignCards, shiftChange, resetPoints } from "../utils";
 
+/*
+Esta función se encarga de reiniciar el tablero reordenando las cartas, y reiniciar el puntaje de los jugadores
+*/
+
+const playersForReset = [];
+
 const restartPanel = (
   updatedActivePlayer,
   modifyCards,
@@ -21,16 +27,13 @@ const restartPanel = (
     });
   });
 
-  const updatedCards = assignCards();
-
-  shiftChange(updatedActivePlayer);
+  shiftChange(modifyActivePlayer, 0, 0, updatedActivePlayer);
 
   if (players) {
+    const updatedCards = assignCards();
+    modifyCards(updatedCards);
     resetPoints(players, modifyPlayers);
-    modifyActivePlayer(updatedActivePlayer);
   }
-
-  modifyCards(updatedCards);
 
   endScreen.close();
 };

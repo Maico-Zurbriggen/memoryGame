@@ -1,5 +1,10 @@
 import assignPlayers from "./assignPlayers";
 
+/*
+Esta función actualiza el estado players con los nombres de los jugadores y actualiza el estado activePlayer
+con el primer nombre de los jugadores o puede devolver un error si se detecto alguno en la validación
+*/
+
 const play = (e, players, modifyPlayers, modifyActivePlayer, modifyErrors) => {
   e.preventDefault();
 

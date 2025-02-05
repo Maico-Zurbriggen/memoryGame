@@ -1,3 +1,7 @@
+/*
+Este componente muestra los resultados finales de los jugadores en el componente EndScreen
+*/
+
 const ResultsTable = ({ players }) => {
   return (
     <>

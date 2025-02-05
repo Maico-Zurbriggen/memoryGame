@@ -1,4 +1,9 @@
-const verifyWin = (players) => {
+/*
+Esta función verifica si todas las cartas fueron descubiertas y si lo fueron verifica quien ha sido el ganador
+y actualiza el estado Winner
+*/
+
+const verifyWin = (players, modifyWinner) => {
   const allCards = document.querySelectorAll(".card");
   const allVisibleCards = document.querySelectorAll(".visible");
   let winners = [];
@@ -13,7 +18,13 @@ const verifyWin = (players) => {
     endScreen.showModal();
   }
 
-  return winners;
+  if (winners.length) {
+    if (winners.length > 1) {
+      modifyWinner("There Is A Tie");
+    } else {
+      modifyWinner(`The Winner Is ${winners[0].name}`);
+    }
+  }
 };
 
 export default verifyWin;
